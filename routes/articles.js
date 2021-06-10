@@ -50,7 +50,7 @@ function saveArticleAndRedirect (path){
     let article = req.article;
     article.title = req.body.title;
     article.description = req.body.description;
-    article.markDown = req.body.markDown;
+    article.markdown = req.body.markdown;
 
     try {
       article = await article.save();
