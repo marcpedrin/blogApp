@@ -1,0 +1,26 @@
+<%- include('_header')%>
+  <div class="container">
+    <h1 class="text-center mt-4 mb-4">Blog Article</h1>
+    <a href="/articles/new" class="btn btn-success">New Article</a>
+    
+      <% articles.forEach((article) => {%>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><%= article.title%></h4>
+            <p class="card-text">
+              <%= article.date%>
+            </p>
+
+            <div class="card-text">
+              <%= article.description%>
+            </div>
+            <a href="articles/<%= article.id%>" class="btn btn-primary">Read More</a>
+            <form action="/articles/<%= article.id%>?_method=DELETE" method="POST" class="d-inline">
+            <button class="btn btn-danger">Delete!</button>
+            </form>
+          </div>
+        </div>
+      <%})%>
+    
+  </div>
+  <%- include('_footer')%>
